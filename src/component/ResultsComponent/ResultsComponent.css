@@ -1,0 +1,51 @@
+.result-container {
+    padding: 24px 32px;
+    background: #cccccc52;
+}
+.result-card {
+    display: grid;
+    grid-template-columns: 5fr 73% 1fr;
+    grid-gap: 12px;
+    margin-bottom: 24px;
+}
+.result-card p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 100;
+}
+.card-text p:first-child {
+    margin-bottom: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-weight: 500;
+}
+.card-news-posted-by {
+    color: gray;
+}
+.card-news-description {
+    display: none;
+}
+.published-data {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 16px;
+}
+.card-date-container {
+    display: flex;
+}
+.card-date-container i {
+    margin-right: 4px;
+    align-self: center;
+    color: gray;
+}
+.result-card .card-news-published-date {
+    align-self: center;
+    font-size: 8px;
+}
+.avatar-container {
+    display: grid;
+    align-items: center;
+}

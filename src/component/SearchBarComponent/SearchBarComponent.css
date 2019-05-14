@@ -1,0 +1,12 @@
+.search-bar-container input {
+    background: #65f9d3;
+    border: none;
+    border-bottom: 1px solid white;
+    width: 97%;
+    color: #fff;
+    font-size: 18px;
+}
+
+.search-bar-container i {
+    margin-left: -19px;
+}
