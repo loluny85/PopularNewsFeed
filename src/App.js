@@ -7,6 +7,7 @@ import SortResultComponent from './component/SortResultComponent/SortResultCompo
 import ResultsComponent from './component/ResultsComponent/ResultsComponent';
 import api from './utils/api';
 import filterCardData from './utils/filterCardData';
+import { sortBy } from 'lodash';
 
 class App extends Component {
 
@@ -19,9 +20,8 @@ class App extends Component {
     let filteredNewsResults = this.state.mostPopularResults.filter((result)=>{
       return result.newsDescription.toLowerCase().search(e.target.value.toLowerCase()) !== -1;
     })
-
-    console.log(filteredNewsResults);
     this.setState({
+      ...this.state,
       mostPopularFilteredResults: filteredNewsResults
     })
   }
@@ -34,11 +34,20 @@ class App extends Component {
   }
 
   showOldNews = (daysOldDataRequired) => {
-    console.log('sort', daysOldDataRequired);
     api.getPopularArticles('viewed', daysOldDataRequired)
     .then((response) => {
       this.refreshNewsFeed(response);
     });
+  }
+
+  sortNewsBy = (sortOrder) => {
+    let filteredResults = [...this.state.mostPopularFilteredResults]
+    filteredResults = sortBy(filteredResults, "newPublishedDate");
+    filteredResults = sortOrder === 'latest' ?  filteredResults.reverse() : filteredResults;
+    this.setState({
+      ...this.state,
+      mostPopularFilteredResults: filteredResults
+    })
   }
 
   componentDidMount() {
@@ -54,7 +63,7 @@ class App extends Component {
         <HeaderComponent>
           <MenuBarComponent></MenuBarComponent>
           <SearchBarComponent filterResultBySearchTerm={this.filterResultBySearchTerm}></SearchBarComponent>
-          <SortResultComponent showOldNews={this.showOldNews}></SortResultComponent>
+          <SortResultComponent sortNewsBy={this.sortNewsBy} showOldNews={this.showOldNews}></SortResultComponent>
         </HeaderComponent>
         <ResultsComponent mostPopularResults={this.state.mostPopularFilteredResults}></ResultsComponent>
       </div>
