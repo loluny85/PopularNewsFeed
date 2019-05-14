@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './MenuBarComponent.css';
 
-const MenuBarComponent = () => {
+class MenuBarComponent extends Component {
+  state = {
+    hideElement: true
+  }
+
+  toggleMenuBarContent = () => {
+    this.setState((previousState) => {
+      return { hideElement: !previousState.hideElement };
+    });
+  }
+
+  render() {
     return (
-      <div className="menu-bar-container">
-        <i className="fas fa-bars"></i>
+      <div className='menu-bar-container'>
+        <i className='fas fa-bars' onClick={this.toggleMenuBarContent}></i>
+        <div className={`menu-bar-content ${this.state.hideElement? 'hide-element' : null}`}>
+          <section>
+            <div>About</div>
+            <div>Help</div>
+            <div>Logout</div>
+          </section>
+        </div>
       </div>
     );
+  }
 }
 
 export default MenuBarComponent;

@@ -2,3 +2,20 @@
     display: grid;
     justify-content: center;
 }
+
+.menu-bar-content {
+    position: absolute;
+    background: #65f9d3;
+    top: 44px;
+    border-radius: 4px;
+    padding: 32px;
+    padding-bottom: 10px;
+}
+
+.menu-bar-content div {
+    margin-bottom: 6px;
+}
+
+.hide-element {
+    display: none;
+}

@@ -26,14 +26,25 @@ class App extends Component {
     })
   }
 
+  refreshNewsFeed = (newsResult) => {
+    this.setState({
+      mostPopularResults: filterCardData(newsResult.data.results),
+      mostPopularFilteredResults: filterCardData(newsResult.data.results)
+    })
+  }
+
+  showOldNews = (daysOldDataRequired) => {
+    console.log('sort', daysOldDataRequired);
+    api.getPopularArticles('viewed', daysOldDataRequired)
+    .then((response) => {
+      this.refreshNewsFeed(response);
+    });
+  }
+
   componentDidMount() {
-    api.getPopularArticles('viewed')
-    .then((response)=>{
-      console.log(filterCardData(response.data.results), response.data.results);
-      this.setState({
-        mostPopularResults: filterCardData(response.data.results),
-        mostPopularFilteredResults: filterCardData(response.data.results)
-      })
+    api.getPopularArticles('viewed', '7')
+    .then((response) => {
+      this.refreshNewsFeed(response);
     });
   }
 
@@ -43,7 +54,7 @@ class App extends Component {
         <HeaderComponent>
           <MenuBarComponent></MenuBarComponent>
           <SearchBarComponent filterResultBySearchTerm={this.filterResultBySearchTerm}></SearchBarComponent>
-          <SortResultComponent></SortResultComponent>
+          <SortResultComponent showOldNews={this.showOldNews}></SortResultComponent>
         </HeaderComponent>
         <ResultsComponent mostPopularResults={this.state.mostPopularFilteredResults}></ResultsComponent>
       </div>
