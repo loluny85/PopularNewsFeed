@@ -8,12 +8,14 @@ import ResultsComponent from './component/ResultsComponent/ResultsComponent';
 import api from './utils/api';
 import filterCardData from './utils/filterCardData';
 import { sortBy } from 'lodash';
+import LoaderComponent from './component/LoaderComponent/LoaderComponent';
 
 class App extends Component {
 
   state = {
     mostPopularResults: [],
     mostPopularFilteredResults: [],
+    loading: true
   }
 
   filterResultBySearchTerm = (e) => {
@@ -33,10 +35,19 @@ class App extends Component {
     })
   }
 
+  setPageLoadingStatus = (isLoading) => {
+    this.setState({
+      ...this.state,
+      loading: isLoading
+    })
+  }
+
   showOldNews = (daysOldDataRequired) => {
+    this.setPageLoadingStatus(true);
     api.getPopularArticles('viewed', daysOldDataRequired)
     .then((response) => {
       this.refreshNewsFeed(response);
+      this.setPageLoadingStatus(false);
     });
   }
 
@@ -54,11 +65,12 @@ class App extends Component {
     api.getPopularArticles('viewed', '7')
     .then((response) => {
       this.refreshNewsFeed(response);
+      this.setPageLoadingStatus(false);
     });
   }
 
   render() {
-    return (
+    return this.state.loading? (<LoaderComponent />) : (
       <div className="App">
         <HeaderComponent>
           <MenuBarComponent></MenuBarComponent>
@@ -67,7 +79,7 @@ class App extends Component {
         </HeaderComponent>
         <ResultsComponent mostPopularResults={this.state.mostPopularFilteredResults}></ResultsComponent>
       </div>
-    );
+    )
   }
 }
 
