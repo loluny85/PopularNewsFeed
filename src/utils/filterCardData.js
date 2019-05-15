@@ -1,4 +1,4 @@
-const filterCardData = (data) => {
+const filterCardData = (data) => { // Mapper function
     return data.map((dataItem)=>{
         return {
             id: dataItem.id,

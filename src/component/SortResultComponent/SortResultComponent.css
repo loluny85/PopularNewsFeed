@@ -12,6 +12,9 @@
     margin-right: 4px;
     padding: 24px;
     padding-bottom: 10px;
+    color: #545353;
+    font-family: initial;
+    z-index: 1;
 }
 
 .sort-bar-content div {

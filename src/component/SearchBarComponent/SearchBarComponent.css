@@ -3,9 +3,10 @@
     border: none;
     border-bottom: 1px solid white;
     width: 97%;
-    color: #fff;
     font-size: 18px;
     padding-left: 6px;
+    color: #545353;
+    font-family: initial;
 }
 
 .search-bar-container i {
