@@ -1,3 +1,5 @@
+# This is a news feed application designed and developed for Mobile device.
+
 # To run the application - 
 --------------------------
 After you have git cloned the repository, please follow the below steps-
@@ -9,7 +11,7 @@ After you have git cloned the repository, please follow the below steps-
 # Walk-through the application- 
 --------------------------------
 - The top section is the header section which contains 3 elements -
-1) The Menu bar - On the leftmost side is the Menu bar. On clicking the hamburger icon the dropdown opens. There is a close button on the dropdown, on click of which the dropdown closes. The dropdown items are static items for now.
+1) The Menu bar - On the leftmost side is the Menu bar. On clicking the hamburger icon the dropdown opens. There is a close button on the dropdown, on click of which the dropdown closes. The dropdown items are static items.
 
 2) The Search input box - In the middle is the Search input box. User can filter the News result based on a search term. To reduce click streams, user do not have to hit enter or click on the search icon. Filtering of the news result happens when user types.
 
