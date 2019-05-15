@@ -29,7 +29,7 @@
 
 @media (min-width: 1200px) {
   .App {
-    width: 375px; /* Application developed for Mobile, so rendering same for desktop device */
+    width: 375px; /* Application developed for Mobile, so rendering with mobile device dimensions for desktop device */
     margin: 0 auto;
   }
 }
