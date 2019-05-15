@@ -19,6 +19,13 @@
 
 .sort-bar-content div {
     margin-bottom: 6px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0 6px;
+}
+
+.sort-bar-content div:hover {
+    background: #fff;
 }
 
 .closeIcon {

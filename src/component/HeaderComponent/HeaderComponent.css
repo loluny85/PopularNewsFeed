@@ -1,6 +1,7 @@
 .header-component {
     display: grid;
     grid-template-columns: 1fr 80% 1fr;
+    position: relative;
     height: 60px;
     background: #65f9d3;
     color: #fff;

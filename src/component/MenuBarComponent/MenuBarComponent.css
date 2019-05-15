@@ -16,6 +16,13 @@
 
 .menu-bar-content div {
     margin-bottom: 6px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0 6px;
+}
+
+.menu-bar-content div:hover {
+    background: #fff;
 }
 
 .closeIcon {
