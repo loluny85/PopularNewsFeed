@@ -22,10 +22,10 @@ class ResultsComponent extends Component {
     render() {
       return (
         <div className="result-container">
-          {this.props.mostPopularResults.map((result)=>{
+          {this.props.mostPopularResults.map((result, index)=>{
             let avatar_url = get(result, "media[0]['media-metadata'][0].url", 'NA');
             return (
-              <div className='result-card' key='result.id'>
+              <div className='result-card' key={`result.id${index}`}> {/* result.id is not unique in few cases, hence using index */}
                 <section className='avatar-container'>
                   <AvatarComponent imageUrl={avatar_url}></AvatarComponent>
                 </section>
