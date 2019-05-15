@@ -4,7 +4,7 @@ import './LoaderComponent.css';
 const LoaderComponent = (props) => {
     return (
         <div className='loader-container'>
-            <i class="fas fa-spinner fa-spin loader"></i>
+            <i className="fas fa-spinner fa-spin loader"></i>
         </div>
     );
 }

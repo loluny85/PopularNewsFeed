@@ -21,6 +21,12 @@
     margin-bottom: 6px;
 }
 
+.closeIcon {
+    right: 10px;
+    top: 10px;
+    position: absolute;
+}
+
 .hide-element {
     display: none;
 }

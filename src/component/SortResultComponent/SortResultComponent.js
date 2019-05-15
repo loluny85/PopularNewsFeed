@@ -17,6 +17,7 @@ class SortResultComponent extends Component {
       <div className="sort-result-container">
         <i className="fas fa-ellipsis-v" onClick={this.toggleSortBarContent}></i>
         <div className={`sort-bar-content ${this.state.hideElement? 'hide-element' : null}`}>
+        <i className="fas fa-times closeIcon" onClick={this.toggleSortBarContent}></i>
           <section>
             <div onClick={()=>this.props.sortNewsBy('latest')}>Sort by Latest news</div>
             <div onClick={()=>this.props.sortNewsBy('oldest')}>Sort by Oldest new</div>
